@@ -1,13 +1,13 @@
 <p>
-  <b>Name:</b>
+  <b>Nimi:</b>
   <%=h @course.name %>
 </p>
 
 <p>
-  <b>Description:</b>
+  <b>Kuvaus:</b>
   <%=h @course.description %>
 </p>
 
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Muokkaa', edit_course_path(@course) %> |
+<%= link_to 'Takaisin', courses_path %>

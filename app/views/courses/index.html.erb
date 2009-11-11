@@ -1,22 +1,19 @@
-<h1>Listing courses</h1>
+<h2>Kurssilistaus</h2>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-  </tr>
 
+<ul>
 <% @courses.each do |course| %>
-  <tr>
-    <td><%=h course.name %></td>
-    <td><%=h course.description %></td>
-    <td><%= link_to 'Show', course %></td>
-    <td><%= link_to 'Edit', edit_course_path(course) %></td>
-    <td><%= link_to 'Destroy', course, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <li><%= link_to (h course.name) , course %>
+   	<!-- <td><%=h course.description %></td>
+    <td><%= link_to 'Näytä', course %></td>
+    <td><%= link_to 'Muokkaa', edit_course_path(course) %></td>
+    <td><%= link_to 'Poista', course, :confirm => 'Oletko varma?', :method => :delete %></td>
+	-->
+  </li>
 <% end %>
-</table>
+</ul>
+
 
 <br />
 
-<%= link_to 'New course', new_course_path %>
+<%= link_to 'Luo uusi kurssi', new_course_path %>
