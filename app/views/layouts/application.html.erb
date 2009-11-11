@@ -1,0 +1,27 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <title>Ilmo 2.0</title>
+        <%= stylesheet_link_tag "blueprint/screen" %>
+    </head>
+    <body>
+        <div class="container">
+            <div class="span-24 last">
+               <p class="box">Header</p>
+            </div>
+            <div class="span-4">
+                <p></p>
+            </div>
+            <div class="span-16">
+                <%= yield%>
+            </div>
+            <div class="span-4 last">
+               <p></p>
+            </div>
+			<div class="span-24 last">
+				<p clasS="box"><%= my_date %></p>
+			</div>
+        </div>
+    </body>
+</html>

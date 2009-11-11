@@ -1,0 +1,15 @@
+<% form_for(@course) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Nimi %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :Kuvaus %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
