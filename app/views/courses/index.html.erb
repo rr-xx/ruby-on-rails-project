@@ -4,10 +4,11 @@
 <ul>
 <% @courses.each do |course| %>
   <li><%= link_to (h course.name) , course %>
-   	<!-- <td><%=h course.description %></td>
-    <td><%= link_to 'Näytä', course %></td>
-    <td><%= link_to 'Muokkaa', edit_course_path(course) %></td>
-    <td><%= link_to 'Poista', course, :confirm => 'Oletko varma?', :method => :delete %></td>
+   	<!-- 
+	<td><%#= h course.description %></td>
+    <td><%#= link_to 'Näytä', course %></td>
+    <td><%#= link_to 'Muokkaa', edit_course_path(course) %></td>
+    <td><%#= link_to 'Poista', course, :confirm => 'Oletko varma?', :method => :delete %></td>
 	-->
   </li>
 <% end %>

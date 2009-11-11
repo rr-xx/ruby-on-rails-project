@@ -1,5 +1,6 @@
 set :application, "railscoursework"
 set :repository,  "git@github.com:rr/ruby-on-rails-project.git"
+set :rake, "/opt/ruby-enterprise-1.8.7-2009.10/bin/rake"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
