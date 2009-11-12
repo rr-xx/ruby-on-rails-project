@@ -4,4 +4,5 @@ module ApplicationHelper
   def my_date
     Time.now.to_s :my_date
   end
+  
 end
