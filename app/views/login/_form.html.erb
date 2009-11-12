@@ -1,0 +1,15 @@
+<% form_for :login_path, :url => {:action => :create} do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :Nimi %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :Password %><br />
+    <%= f.password_field :password %>
+  </p>
+  <p>
+    <%= f.submit 'Ok' %>
+  </p>
+<% end %>
