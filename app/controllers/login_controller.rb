@@ -7,7 +7,14 @@ def new
 end
 
 def create
-  session[:user] = true
+  begin
+    user = User.authenticate(params[:login])
+  rescue ArgumentError
+  	redirect_to new_login_path
+    flash[:warn] = "Kirjautuminen epäonnistui."
+    return
+  end
+  session[:user] = user.id
   redirect_to root_path
 end
 

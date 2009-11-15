@@ -1,0 +1,22 @@
+<h2>Rekisteröidy</h2>
+
+<% form_for(@user) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+  	<%= f.label :Tunnus%><br />
+	<%= f.text_field :name%>
+  </p>
+  <p>
+  	<%= f.label :Salasana%><br />
+	<%= f.password_field :password%>
+  <p>
+  	<p>
+  		<%= f.label :Uudelleen%><br />
+		<%= f.password_field :password_confirmation %>
+  	</p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', users_path %>

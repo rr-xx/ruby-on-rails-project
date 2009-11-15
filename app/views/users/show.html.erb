@@ -1,0 +1,7 @@
+<h2>Käyttäjä</h2>
+
+<p>
+Tunnus: <%= h @user.name %>
+</p>
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

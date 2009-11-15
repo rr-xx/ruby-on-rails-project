@@ -4,6 +4,8 @@
         <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
         <title>Ilmo 2.0</title>
         <%= stylesheet_link_tag "blueprint/screen" %>
+		<%#= javascript_include_tag 'XMLHttpRequest' ,'v2.standalone.full.min', 'v2.config', 'v2.rails' %>
+
     </head>
     <body>
         <div class="container">
@@ -13,7 +15,8 @@
       					<%=link_to 'Kirjaudu ulos', logout_path, :confirm => 'Oletko varma?' %>
     			<%end%>
 				</p>
-				<p style="color: green"><%= flash[:notice] %></p>
+					<p style="color: green"><%= flash[:notice] %></p>
+					<p style="color: #990000;red"><%= flash[:warn] %></p>
 				</div>
             </div>
             <div class="span-4">
