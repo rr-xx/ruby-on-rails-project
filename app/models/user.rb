@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  validates_presence_of :name, :password
+  validates_length_of :name, :minimum => 5
+  
   validates_uniqueness_of :name, :message => "Tunnus on jo käytössä"
   validates_confirmation_of :password
 
