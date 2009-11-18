@@ -1,6 +1,6 @@
 class User < ActiveRecord::Base
   
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, :message => "Tunnus on jo käytössä"
   validates_confirmation_of :password
 
   def before_save

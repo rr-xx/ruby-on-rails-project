@@ -6,7 +6,7 @@ class UsersController < ApplicationController
   
   
   def authenticate_user
-    if current_user.id != params[:id].to_i
+    if current_user and current_user.id != params[:id].to_i
       flash[:warn] = "Ei sallittu!"
       redirect_to root_path  
     end
@@ -95,6 +95,11 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    
+    if current_user == nil
+      redirect_to :logout
+      return
+    end
 
     respond_to do |format|
       format.html { redirect_to(users_url) }
