@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates_uniqueness_of :name
   validates_confirmation_of :password
 
-  def before_create
+  def before_save
     self.password = Password::update(self.password)
   end
   

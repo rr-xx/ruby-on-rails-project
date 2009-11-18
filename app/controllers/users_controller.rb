@@ -2,6 +2,17 @@ class UsersController < ApplicationController
   
   skip_filter :authenticate, :only => [:new, :create]
   
+  before_filter :authenticate_user, :except => [:new, :create]
+  
+  
+  def authenticate_user
+    if current_user.id != params[:id].to_i
+      flash[:warn] = "Ei sallittu!"
+      redirect_to root_path  
+    end
+    
+  end
+  
   # GET /users
   # GET /users.xml
   def index
@@ -38,6 +49,7 @@ class UsersController < ApplicationController
   # GET /users/1/edit
   def edit
     @user = User.find(params[:id])
+    @user.password = ""
   end
 
   # POST /users
@@ -63,6 +75,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     respond_to do |format|
+      if params[:user][:password] == ""
+        params[:user][:password] = @user.password
+        params[:user][:password_confirmation] = nil
+      end
       if @user.update_attributes(params[:user])
         flash[:notice] = 'User was successfully updated.'
         format.html { redirect_to(@user) }

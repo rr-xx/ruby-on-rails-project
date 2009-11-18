@@ -5,4 +5,8 @@ module ApplicationHelper
     Time.now.to_s :my_date
   end
   
+  def current_user
+    User.find_by_id(session[:user])
+  end
+  
 end
