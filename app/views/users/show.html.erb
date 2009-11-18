@@ -1,8 +1,17 @@
 <h2>Käyttäjän Tiedot</h2>
 
-<p>
-Tunnus: <%= h @user.name %>
-</p>
+<ul>
+	
+	<li>
+		Tunnus: <%= h @user.name %>		
+	</li>
+	<li>
+		Opiskelijanumero: <%= h @user.student_number %>		
+	</li>
+	
+</ul>
+
+
 <%= link_to 'Muokkaa asetuksiasi', edit_user_path(@user) %> |
 <%= link_to 'Takaisin kursseihin', courses_path %>
 
