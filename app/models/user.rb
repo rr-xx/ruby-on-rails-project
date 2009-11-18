@@ -4,7 +4,9 @@ class User < ActiveRecord::Base
   validates_confirmation_of :password
 
   def before_save
-    self.password = Password::update(self.password)
+    if self.password.length < 150 #this is häck!
+      self.password = Password::update(self.password)      
+    end
   end
   
   def self.authenticate(arguments)

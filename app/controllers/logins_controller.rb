@@ -1,4 +1,4 @@
-class LoginController < ApplicationController
+class LoginsController < ApplicationController
   
 skip_filter :authenticate, :only => [:new, :create]
 
