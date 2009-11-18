@@ -1,14 +1,23 @@
 class User < ActiveRecord::Base
   
-  validates_presence_of :name, :password
+  validates_presence_of :name, :password, :unless => :now_editing
   validates_length_of :name, :minimum => 5
   
   validates_uniqueness_of :name, :message => "Tunnus on jo käytössä"
   validates_confirmation_of :password
+  
+  attr_accessor :editing
+
+  def now_editing
+    return self.editing
+  end
 
   def before_save
-    if self.password.length < 150 #this is häck!
+    if self.password != ""
       self.password = Password::update(self.password)      
+    else
+      u = User.find_by_id(self.id)
+      self.password = u.password
     end
   end
   

@@ -73,10 +73,11 @@ class UsersController < ApplicationController
   # PUT /users/1.xml
   def update
     @user = User.find(params[:id])
+    
+    @user.editing = true
 
     respond_to do |format|
       if params[:user][:password] == ""
-        params[:user][:password] = @user.password
         params[:user][:password_confirmation] = nil
       end
       if @user.update_attributes(params[:user])
