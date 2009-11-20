@@ -1,0 +1,20 @@
+<h1>Editing course_instance</h1>
+
+<% form_for(@course_instance) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :number %><br />
+    <%= f.text_field :number %>
+  </p>
+  <p>
+    <%= f.label :lecture_time %><br />
+    <%= f.text_field :lecture_time %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @course_instance %> |
+<%= link_to 'Back', course_instances_path %>

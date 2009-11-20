@@ -1,0 +1,13 @@
+<p>
+  <b>Number:</b>
+  <%=h @course_instance.number %>
+</p>
+
+<p>
+  <b>Lecture time:</b>
+  <%=h @course_instance.lecture_time %>
+</p>
+
+
+<%= link_to 'Edit', edit_course_instance_path(@course_instance) %> |
+<%= link_to 'Back', course_instances_path %>
