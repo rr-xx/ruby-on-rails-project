@@ -1,7 +1,7 @@
-<h2>Uusi kurssi</h2>
+<h2><%= (t "new").capitalize%> <%= h @course.class.human_name %></h2>
 
 <% form_for(@course) do |f| %>
-<%= render :partial => "form", :locals  => {:f => f }%>
+<%= render :partial => "form", :locals  => {:f => f, :model => @course }%>
   <p>
     <%= f.submit 'Luo' %>
   </p>

@@ -2,10 +2,10 @@
   <%= f.error_messages %>
 
   <p>
-    <%= f.label :Nimi %><br />
+    <%= f.label model.class.human_attribute_name("name") %><br />
     <%= f.text_field :name %>
   </p>
   <p>
-    <%= f.label :Kuvaus %><br />
+    <%= f.label model.class.human_attribute_name("description") %><br />
     <%= f.text_area :description %>
   </p>

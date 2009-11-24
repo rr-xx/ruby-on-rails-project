@@ -9,11 +9,17 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-  before_filter :authenticate
+  before_filter :authenticate, :locale_initialization
+  
   
   protected
   
   include ApplicationHelper
+  
+  def locale_initialization
+    session[:locale] = params[:locale] if params[:locale]
+    I18n.locale = session[:locale]
+  end
   
   def authenticate
     unless session[:user]

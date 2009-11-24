@@ -1,13 +1,24 @@
 ActionController::Routing::Routes.draw do |map|
+  
+  Translate::Routes.translation_ui(map) if RAILS_ENV != "production"
+  
   map.resources :course_instances
 
   map.resources :exercise_groups
 
   map.resources :users
-
   
-
-  # The priority is based upon order of creation: first created -> highest priority.
+  map.logout "/logout" , :controller => "logins", :action => "destroy"
+  map.root :controller => "courses"
+  
+  map.resources :courses
+  map.resources :users
+  map.resource :login
+  
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
+end
+# The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
@@ -46,13 +57,3 @@ ActionController::Routing::Routes.draw do |map|
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
   # consider removing or commenting them out if you're using named routes and resources.
-  map.logout "/logout" , :controller => "logins", :action => "destroy"
-  map.root :controller => "courses"
-  
-  map.resources :courses
-  map.resources :users
-  map.resource :login
-  
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
-end

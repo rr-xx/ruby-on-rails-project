@@ -2,7 +2,7 @@ class CourseInstancesController < ApplicationController
   # GET /course_instances
   # GET /course_instances.xml
   def index
-    @course_instances = CourseInstance.all
+    @course_instances = CourseInstance.active_ones
 
     respond_to do |format|
       format.html # index.html.erb

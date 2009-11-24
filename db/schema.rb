@@ -9,11 +9,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091118083000) do
+ActiveRecord::Schema.define(:version => 20091120122404) do
+
+  create_table "course_instances", :force => true do |t|
+    t.integer  "number"
+    t.string   "lecture_time"
+    t.integer  "course_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "courses", :force => true do |t|
     t.string   "name"
     t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exercise_groups", :force => true do |t|
+    t.integer  "number"
+    t.string   "lecture_time"
+    t.integer  "course_instance_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

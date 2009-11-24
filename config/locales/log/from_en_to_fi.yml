@@ -1,0 +1,9 @@
+--- 
+new: new
+activerecord: 
+  attributes: 
+    course: 
+      name: name
+support: 
+  select: 
+    prompt: Please select

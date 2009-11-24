@@ -1,0 +1,196 @@
+--- 
+fi: 
+  new: uusi
+  number: 
+    format: 
+      separator: ","
+      precision: 3
+      delimiter: .
+    human: 
+      format: 
+        precision: 1
+        delimiter: ""
+      storage_units: 
+        format: "%n %u"
+        units: 
+          kb: kB
+          tb: TB
+          gb: GB
+          byte: 
+            one: tavu
+            other: tavua
+          mb: MB
+    percentage: 
+      format: 
+        delimiter: ""
+    precision: 
+      format: 
+        delimiter: ""
+    currency: 
+      format: 
+        format: "%n %u"
+        unit: !binary |
+          4oKs
+
+        separator: ","
+        precision: 2
+        delimiter: .
+  activerecord: 
+    models: 
+      course: Kurssi
+    attributes: 
+      course: 
+        name: Nimi
+        description: Kuvaus
+    errors: 
+      messages: 
+        greater_than_or_equal_to: "t\xC3\xA4ytyy olla suurempi tai yht\xC3\xA4 suuri kuin{{count}}"
+        record_invalid: "Validointi ep\xC3\xA4onnistui: {{errors}}"
+        less_than_or_equal_to: "t\xC3\xA4ytyy olla pienempi tai yht\xC3\xA4 suuri kuin {{count}}"
+        confirmation: ei vastaa varmennusta
+        blank: "ei voi olla sis\xC3\xA4ll\xC3\xB6t\xC3\xB6n"
+        exclusion: on varattu
+        invalid: on kelvoton
+        odd: "t\xC3\xA4ytyy olla pariton"
+        wrong_length: "on v\xC3\xA4\xC3\xA4r\xC3\xA4n pituinen (t\xC3\xA4ytyy olla t\xC3\xA4sm\xC3\xA4lleen {{count}} merkki\xC3\xA4)"
+        empty: "ei voi olla tyhj\xC3\xA4"
+        even: "t\xC3\xA4ytyy olla parillinen"
+        too_short: "on liian lyhyt (v\xC3\xA4hint\xC3\xA4\xC3\xA4n {{count}} merkki\xC3\xA4)"
+        less_than: "t\xC3\xA4ytyy olla pienempi kuin {{count}}"
+        equal_to: "t\xC3\xA4ytyy olla yht\xC3\xA4 suuri kuin {{count}}"
+        greater_than: "t\xC3\xA4ytyy olla suurempi kuin {{count}}"
+        taken: !binary |
+          b24gam8ga8OkeXTDtnNzw6Q=
+
+        accepted: "t\xC3\xA4ytyy olla hyv\xC3\xA4ksytty"
+        too_long: "on liian pitk\xC3\xA4 (enint\xC3\xA4\xC3\xA4n {{count}} merkki\xC3\xA4)"
+        not_a_number: ei ole numero
+        inclusion: "ei l\xC3\xB6ydy listasta"
+      full_messages: 
+        format: "{{attribute}} {{message}}"
+      template: 
+        body: "Seuraavat kent\xC3\xA4t aiheuttivat ongelmia:"
+        header: 
+          one: "1 virhe esti t\xC3\xA4m\xC3\xA4n {{model}} mallin tallentamisen"
+          other: "{{count}} virhett\xC3\xA4 esti t\xC3\xA4m\xC3\xA4n {{model}} mallin tallentamisen"
+  time: 
+    am: !binary |
+      YWFtdXDDpGl2w6Q=
+
+    formats: 
+      default: "%a, %e. %b %Y %H:%M:%S %z"
+      short: "%e. %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    pm: !binary |
+      aWx0YXDDpGl2w6Q=
+
+  date: 
+    month_names: 
+    - 
+    - tammikuu
+    - helmikuu
+    - maaliskuu
+    - huhtikuu
+    - toukokuu
+    - "kes\xC3\xA4kuu"
+    - "hein\xC3\xA4kuu"
+    - elokuu
+    - syyskuu
+    - lokakuu
+    - marraskuu
+    - joulukuu
+    abbr_day_names: 
+    - su
+    - ma
+    - ti
+    - ke
+    - to
+    - pe
+    - la
+    order: 
+    - :day
+    - :month
+    - :year
+    formats: 
+      default: "%e. %Bta %Y"
+      short: "%e.%m.%Y"
+      long: "%A%e. %Bta %Y"
+    day_names: 
+    - sunnuntai
+    - maanantai
+    - tiistai
+    - keskiviikko
+    - torstai
+    - perjantai
+    - lauantai
+    abbr_month_names: 
+    - 
+    - tammi
+    - helmi
+    - maalis
+    - huhti
+    - touko
+    - !binary |
+      a2Vzw6Q=
+
+    - !binary |
+      aGVpbsOk
+
+    - elo
+    - syys
+    - loka
+    - marras
+    - joulu
+  support: 
+    array: 
+      words_connector: ", "
+      last_word_connector: " ja "
+      two_words_connector: " ja "
+    select: 
+      prompt: Valitkaa
+  datetime: 
+    prompts: 
+      minute: Minuutti
+      second: Sekuntia
+      month: Kuukausi
+      hour: Tunti
+      day: !binary |
+        UMOkaXbDpA==
+
+      year: Vuosi
+    distance_in_words: 
+      less_than_x_minutes: 
+        one: alle minuutti
+        other: alle {{count}} minuuttia
+      x_days: 
+        one: !binary |
+          cMOkaXbDpA==
+
+        other: !binary |
+          e3tjb3VudH19IHDDpGl2w6TDpA==
+
+      x_seconds: 
+        one: sekunti
+        other: "{{count}} sekuntia"
+      less_than_x_seconds: 
+        one: alle sekunti
+        other: alle {{count}} sekuntia
+      x_months: 
+        one: kuukausi
+        other: "{{count}} kuukautta"
+      x_minutes: 
+        one: minuutti
+        other: "{{count}} minuuttia"
+      about_x_hours: 
+        one: noin tunti
+        other: noin {{count}} tuntia
+      about_x_years: 
+        one: vuosi
+        other: noin {{count}} vuotta
+      about_x_months: 
+        one: noin kuukausi
+        other: noin {{count}} kuukautta
+      over_x_years: 
+        one: yli vuosi
+        other: yli {{count}} vuotta
+      half_a_minute: puoli minuuttia
