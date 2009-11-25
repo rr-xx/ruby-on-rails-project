@@ -8,6 +8,16 @@
   <%=h @course_instance.lecture_time %>
 </p>
 
+<% @course_instance.exercise_groups.each do |eg| %>
+<p>
+	
+<%= link_to eg.id, eg %><br/>
+	
+</p>
+<% end%>
+	
+	
+
 
 <%= link_to 'Edit', edit_course_instance_path(@course_instance) %> |
 <%= link_to 'Back', course_instances_path %>

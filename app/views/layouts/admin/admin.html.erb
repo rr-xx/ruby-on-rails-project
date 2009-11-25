@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+        <title>Ilmo 2.0</title>
+        <%= stylesheet_link_tag "blueprint/screen" %>
+        <%= javascript_include_tag 'prototype', 'live_validation' %>
+		<%= stylesheet_link_tag 'live_validation' %>
+		<%= javascript_include_tag :defaults %>
+		<%= active_scaffold_includes %>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="span-24 last" style="background:#E5ECF9;padding:20px;padding-right:0px;padding-left:0px">
+            	
+	                <div class="span-24 last">
+	                    Admin
+	                </div>
+	                <%if session[:user] %>
+		                <div class="span-18">
+		                    Kirjautunut: <%= link_to current_user.name, current_user %>
+		                </div>
+		                <div class="span-6 last">
+		                    <%=link_to 'Kirjaudu ulos', logout_path, :confirm => 'Oletko varma?' %>
+		                </div>
+	                <%end %>
+					<% if flash[:notice] or flash[:warn]%>
+		                <div class="span-24 last">
+		                    <p style="color: green">
+		                        <%= flash[:notice] %>
+		                    </p>
+		                    <p style="color: #990000;red">
+		                        <%= flash[:warn] %>
+		                    </p>
+		                </div>
+					<% end %>
+				
+            </div>
+            <div class="span-24 last">
+               <%= yield %>
+            </div>
+            <div class="span-24 last">
+                <p class="box">
+                    <%= my_date %>
+                </p>
+            </div>
+        </div>
+    </body>
+</html>

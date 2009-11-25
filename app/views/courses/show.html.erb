@@ -7,7 +7,11 @@
   <b>Kuvaus:</b>
   <%=h @course.description %>
 </p>
-
+<p>
+<% @course.course_instances.each do |ci| %>
+<%= link_to ci.id, ci%>
+<%end %>
+</p>
 
 <%= link_to 'Muokkaa', edit_course_path(@course) %> |
 <%= link_to 'Takaisin', courses_path %>
