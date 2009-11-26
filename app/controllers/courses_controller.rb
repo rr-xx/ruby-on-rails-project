@@ -3,9 +3,12 @@ class CoursesController < ApplicationController
   # GET /courses.xml
   def index
     @courses = Course.active_ones
-
+    
     respond_to do |format|
       format.html # index.html.erb
+      format.pdf do
+        send_data PdfExport::all_courses(@courses)
+      end
       format.xml  { render :xml => @courses }
     end
   end

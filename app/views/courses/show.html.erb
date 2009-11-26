@@ -9,7 +9,7 @@
 </p>
 <p>
 <% @course.course_instances.each do |ci| %>
-<%= link_to ci.id, ci%>
+<%= link_to ci.id, course_course_instance_path(@course, ci) %>
 <%end %>
 </p>
 

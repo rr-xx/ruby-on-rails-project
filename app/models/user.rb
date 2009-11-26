@@ -1,12 +1,15 @@
 class User < ActiveRecord::Base
   
   validates_presence_of :name, :password, :unless => :now_editing
-  validates_length_of :name, :minimum => 5
+  validates_length_of :name, :in => 3..15
   
   validates_uniqueness_of :name, :message => "Tunnus on jo käytössä"
   validates_confirmation_of :password
   
-  attr_accessor :editing
+  
+  attr_accessor :editing, :password_confirmation
+
+  
 
   def now_editing
     return self.editing
@@ -19,6 +22,7 @@ class User < ActiveRecord::Base
       u = User.find_by_id(self.id)
       self.password = u.password
     end
+    self.name = self.name.downcase
   end
   
   def self.authenticate(arguments)

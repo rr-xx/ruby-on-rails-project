@@ -1,9 +1,4 @@
 <p>
-  <b>Number:</b>
-  <%=h @course_instance.number %>
-</p>
-
-<p>
   <b>Lecture time:</b>
   <%=h @course_instance.lecture_time %>
 </p>
@@ -11,7 +6,7 @@
 <% @course_instance.exercise_groups.each do |eg| %>
 <p>
 	
-<%= link_to eg.id, eg %><br/>
+<%= link_to eg.id, course_course_instance_exercise_group_path(@course_instance.course, @course_instance, eg) %><br/>
 	
 </p>
 <% end%>
@@ -19,5 +14,5 @@
 	
 
 
-<%= link_to 'Edit', edit_course_instance_path(@course_instance) %> |
-<%= link_to 'Back', course_instances_path %>
+<%#= link_to 'Edit', edit_course_instance_path(@course_instance) %> |
+<%#= link_to 'Back', course_instances_path %>

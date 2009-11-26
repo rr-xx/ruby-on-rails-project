@@ -2,16 +2,18 @@ ActionController::Routing::Routes.draw do |map|
   
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production"
   
-  map.resources :course_instances
-
-  map.resources :exercise_groups
-
+  map.resources :courses do |courses|
+    courses.resources :course_instances do |ci|
+      ci.resources :exercise_groups
+    end
+  end
+  
   map.resources :users
   
   map.logout "/logout" , :controller => "logins", :action => "destroy"
   map.root :controller => "courses"
   
-  map.resources :courses
+  
   map.resources :users
   map.resource :login
   
