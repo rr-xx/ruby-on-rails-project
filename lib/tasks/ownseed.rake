@@ -10,14 +10,15 @@ namespace :db do
     require 'populator'
     require 'faker'
     args.times.to_i.times do
-      name = Populator.words(1..2).titleize
+      name = Populator.words(3..4).titleize
       description = Populator.words(100..500)
-      c = Course.create( :name => name, :description => description)
+      c = Course.create!( :name => name, :description => description)
       5.times do
-        ci = CourseInstance.create
+        ci = CourseInstance.create!
+        ci.lecture_time = Populator.words(1).titleize
         c.course_instances << ci
         5.times do
-          ci.exercise_groups << ExerciseGroup.create
+          ci.exercise_groups << ExerciseGroup.create!
         end
       end
       c.save
