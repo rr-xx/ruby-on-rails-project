@@ -8,9 +8,11 @@
   <%=h @course.description %>
 </p>
 <p>
+	<ul>
 <% @course.course_instances.each do |ci| %>
-<%= link_to ci.id, course_course_instance_path(@course, ci) %>
+	<li><%= link_to ci.lecture_time, course_course_instance_path(@course, ci) %></li>
 <%end %>
+	</ul>
 </p>
 
 <%= link_to 'Muokkaa', edit_course_path(@course) %> |

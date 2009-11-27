@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   
   attr_accessor :editing, :password_confirmation
 
+  has_many :registrations
+  has_many :exercise_groups, :through => :registrations
+  
   
 
   def now_editing

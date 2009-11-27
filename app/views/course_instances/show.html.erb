@@ -3,16 +3,18 @@
   <%=h @course_instance.lecture_time %>
 </p>
 
-<% @course_instance.exercise_groups.each do |eg| %>
 <p>
+	<h3><%= h ExerciseGroup.human_name.pluralize %></h3>
+	<ul>
+<% @course_instance.exercise_groups.each do |eg| %>
+
 	
-<%= link_to eg.id, course_course_instance_exercise_group_path(@course_instance.course, @course_instance, eg) %><br/>
+<li>
+	<%= link_to eg.title, course_course_instance_exercise_group_path(@course_instance.course, @course_instance, eg) %>
+	<%=h eg.users.size %> <%= User.human_name %> <%= h Registration.human_name.pluralize %>	
+</li>
 	
-</p>
+
 <% end%>
-	
-	
-
-
-<%#= link_to 'Edit', edit_course_instance_path(@course_instance) %> |
-<%#= link_to 'Back', course_instances_path %>
+</ul>
+</p>	

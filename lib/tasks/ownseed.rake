@@ -11,14 +11,14 @@ namespace :db do
     require 'faker'
     args.times.to_i.times do
       name = Populator.words(3..4).titleize
-      description = Populator.words(100..500)
+      description = Populator.words(100..200)
       c = Course.create!( :name => name, :description => description)
-      5.times do
+      for j in 1..3 do
         ci = CourseInstance.create!
-        ci.lecture_time = Populator.words(1).titleize
+        ci.lecture_time = Date::MONTHNAMES[j].to_s + " "+ (2011-j).to_s
         c.course_instances << ci
-        5.times do
-          ci.exercise_groups << ExerciseGroup.create!
+        for i in 0..6 do
+          ci.exercise_groups << ExerciseGroup.create!( :number => i, :lecture_time =>  Date::DAYNAMES[i] )
         end
       end
       c.save

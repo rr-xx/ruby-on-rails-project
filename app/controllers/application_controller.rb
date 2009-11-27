@@ -11,10 +11,9 @@ class ApplicationController < ActionController::Base
   
   before_filter :authenticate, :locale_initialization
   
+  include UserAuthentication
   
   protected
-  
-  include ApplicationHelper
   
   def locale_initialization
     session[:locale] = params[:locale] if params[:locale]

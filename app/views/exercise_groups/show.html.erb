@@ -1,13 +1,20 @@
-<p>
-  <b>Number:</b>
-  <%=h @exercise_group.number %>
-</p>
+
+<h2><%= h @exercise_group.class.human_name %> <%= h @exercise_group.title%></h2>
 
 <p>
-  <b>Lecture time:</b>
-  <%=h @exercise_group.lecture_time %>
+	
+	<%= link_to "rekisteröidy", registrations_path(:id => @exercise_group.id ), :method => :post %>
+	
 </p>
 
+<h3><%= h User.human_name%> <%= h Registration.human_name.pluralize%></h3>
 
-<%#= link_to 'Edit', edit_exercise_group_path(@exercise_group) %> |
-<%#= link_to 'Back', exercise_groups_path %>
+
+
+<ul>
+<% @exercise_group.users.each do |user| %>
+
+<li><%=h user.name %></li>
+
+<% end %>
+</ul>
