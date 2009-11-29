@@ -12,6 +12,9 @@ class User < ActiveRecord::Base
   has_many :registrations
   has_many :exercise_groups, :through => :registrations
   
+  named_scope :in_exercise_group, lambda { |id| { :joins => :registrations, :conditions => ['exercise_group_id = ?', id] } }
+
+  
   
 
   def now_editing

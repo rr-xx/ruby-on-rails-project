@@ -1,0 +1,17 @@
+<h2></h2>
+
+<%form_for :exercise_group_mail, :url => {:action => :create } do |f| %>
+	<%= select("to", "exercise_group_id", @exercise_groups.collect {|eg| [ eg.lecture_time, eg.id ] }, {:prompt => 'Select ' + ExerciseGroup.human_name }) %>
+	
+	<%= observe_field "to_exercise_group_id", :update => "users",
+	:with => "exercise_group_id", :url => { :action => "getUsersInExerciseGroup" } %>
+	
+	<div id="users">
+	</div>
+	
+	<%= f.label :message %><br />
+	<%= f.text_area :message_body%>
+	
+	<button type="submit" class="button">Lähetä</button>
+	
+<%end %>
