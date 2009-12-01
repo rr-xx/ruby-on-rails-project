@@ -38,10 +38,13 @@ fi:
   activerecord: 
     models: 
       course: Kurssi
+      user: Käyttäjä
     attributes: 
       course: 
         name: Nimi
         description: Kuvaus
+      user:
+        password: Salasana
     errors: 
       messages: 
         greater_than_or_equal_to: "t\xC3\xA4ytyy olla suurempi tai yht\xC3\xA4 suuri kuin{{count}}"

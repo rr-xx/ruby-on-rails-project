@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091125095838) do
+ActiveRecord::Schema.define(:version => 20091129171045) do
 
   create_table "course_instances", :force => true do |t|
     t.string   "lecture_time"
@@ -33,12 +33,24 @@ ActiveRecord::Schema.define(:version => 20091125095838) do
     t.datetime "updated_at"
   end
 
+  create_table "registrations", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "exercise_group_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "course_instance_id"
+  end
+
+  add_index "registrations", ["course_instance_id", "user_id"], :name => "index_registrations_on_course_instance_id_and_user_id", :unique => true
+  add_index "registrations", ["user_id", "exercise_group_id"], :name => "index_registrations_on_user_id_and_exercise_group_id", :unique => true
+
   create_table "users", :force => true do |t|
     t.string   "name"
     t.text     "password"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "student_number"
+    t.string   "email",          :null => false
   end
 
 end
