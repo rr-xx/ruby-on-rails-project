@@ -48,6 +48,16 @@
             <div class="span-8 last">
                 <p>
                 	<h3>NewsFeed comes here</h3>
+					<% @app_news_feeds.each do |feed| %>
+					<div>
+						
+						<% if feed.user_registration? %>
+						User <%= feed.user.name %> <%= t :registered %> <%= time_ago_in_words feed.created_at%> ago.
+						<% else %>
+						<% end %>
+						
+					</div>
+					<% end  %>
                 </p>
             </div>
             <div class="span-24 last">

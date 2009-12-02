@@ -6,6 +6,8 @@ class Course < ActiveRecord::Base
    
    named_scope :active_ones
 
-   
+   def after_create
+     NewsFeed.new_course_created self
+   end
    
 end

@@ -9,11 +9,15 @@ class ApplicationController < ActionController::Base
   # Scrub sensitive parameters from your log
   # filter_parameter_logging :password
   
-  before_filter :authenticate, :locale_initialization
+  before_filter :authenticate, :locale_initialization, :initialize_news_feeds
   
   include UserAuthentication
   
   protected
+  
+  def initialize_news_feeds
+    @app_news_feeds = NewsFeed.all
+  end
   
   def locale_initialization
     session[:locale] = params[:locale] if params[:locale]

@@ -5,8 +5,7 @@ class User < ActiveRecord::Base
   
   validates_uniqueness_of :name, :message => "Tunnus on jo käytössä"
   validates_confirmation_of :password
-  
-  
+
   attr_accessor :editing, :password_confirmation
 
   has_many :registrations
@@ -14,11 +13,12 @@ class User < ActiveRecord::Base
   
   named_scope :in_exercise_group, lambda { |id| { :joins => :registrations, :conditions => ['exercise_group_id = ?', id] } }
 
-  
-  
-
   def now_editing
     return self.editing
+  end
+
+  def after_create
+    NewsFeed.new_user_registration(self)
   end
 
   def before_save
@@ -39,6 +39,5 @@ class User < ActiveRecord::Base
       raise ArgumentError
     end
   end
-
 
 end
