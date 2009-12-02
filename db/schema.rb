@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091201192520) do
+ActiveRecord::Schema.define(:version => 20091202100901) do
 
   create_table "course_instances", :force => true do |t|
     t.string   "lecture_time"
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20091201192520) do
     t.string   "message"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "course_id"
   end
 
   create_table "registrations", :force => true do |t|

@@ -5,8 +5,10 @@ class NewsFeed < ActiveRecord::Base
   belongs_to :exercise_group
   belongs_to :course
   
+  default_scope :order => 'created_at DESC', :limit => 10
+  
   def user_registration?
-    return ! exercise_group
+    return (user and (! (exercise_group)))
   end
   
   def group_registration?
@@ -22,7 +24,12 @@ class NewsFeed < ActiveRecord::Base
   end
   
   def self.new_course_created course
-    NewsFeed.create! :crouse => course 
+    NewsFeed.create! :course => course 
+  end
+  
+  def self.new_group_registration registration
+    NewsFeed.create! :exercise_group => registration.exercise_group, :user => registration.user
+    
   end
   
 end

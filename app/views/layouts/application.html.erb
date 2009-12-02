@@ -47,13 +47,16 @@
             </div>
             <div class="span-8 last">
                 <p>
-                	<h3>NewsFeed comes here</h3>
-					<% @app_news_feeds.each do |feed| %>
+                	<h3>Ilmo 2.0 news:</h3>
+					<% @app_news_feeds.each_with_index do |feed, i| %>
 					<div>
-						
+						<%= i+1 %>. 
 						<% if feed.user_registration? %>
-						User <%= feed.user.name %> <%= t :registered %> <%= time_ago_in_words feed.created_at%> ago.
-						<% else %>
+						User <%= feed.user.name %> <%= t :registered %> - <%= time_ago_in_words feed.created_at%> ago.
+						<% elsif feed.course_creation? %>
+						<%= feed.course.name.capitalize %> created - <%= time_ago_in_words feed.created_at %> ago.
+						<% elsif feed.group_registration? %>
+						<%= feed.user.name %> registered to <%= feed.exercise_group.course_instance.course.name %> - <%= time_ago_in_words feed.created_at %> ago.
 						<% end %>
 						
 					</div>
