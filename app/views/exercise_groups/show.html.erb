@@ -2,8 +2,11 @@
 <h2><%= h @exercise_group.class.human_name %> <%= h @exercise_group.title%></h2>
 
 <p>
-	
+	<% if @exercise_group.course_instance.can_register? current_user %>
 	<%= link_to "rekisteröidy", registrations_path(:id => @exercise_group.id ), :method => :post %>
+	<% else %>
+	Olet jo rekisteröitynyt tälle luentokerralle.
+	<% end%>
 	
 </p>
 
