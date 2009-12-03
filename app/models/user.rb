@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   
+  acts_as_authorization_subject
+  
   validates_presence_of :name, :password, :unless => :now_editing
   validates_length_of :name, :in => 3..15
   
