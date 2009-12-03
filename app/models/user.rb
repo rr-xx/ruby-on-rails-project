@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100>" }
+  
   acts_as_authorization_subject
   
   validates_presence_of :name, :password, :unless => :now_editing

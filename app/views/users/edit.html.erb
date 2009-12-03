@@ -1,31 +1,37 @@
 <h1>Editing user</h1>
-
-<% form_for(@user) do |f| %>
-  <%= f.error_messages %>
-  <p>
-  	<%= f.label :Tunnus%><br />
-	<%= f.text_field :name%>
-  </p>
-  <p>
-  	<%= f.label :Opiskelijanumero %><br/>
-	<%= f.text_field :student_number %>
-  </p>
-  <p>
-  	<%= f.label :Email%><br/>
-	<%= f.text_field :email %>	
-  </p>
-  <p>
-  	<%= f.label :Salasana  %><br />
-	<%= f.password_field :password, :live => false %>
-  </p>
-  <p>
-  	<%= f.label :Uudestaan%><br />
-	<%= f.password_field :password_confirmation %>
-  </p>
-  <p>
+<% form_for @user,  :html => { :multipart => true } do |f| %>
+<%= f.error_messages %>
+<p>
+    <%= f.label :Tunnus %>
+    <br/>
+    <%= f.text_field :name %>
+</p>
+<p>
+    <%= f.label :Opiskelijanumero %>
+    <br/>
+    <%= f.text_field :student_number %>
+</p>
+<p>
+    <%= f.label :Email %>
+    <br/>
+    <%= f.text_field :email %>
+</p>
+<p>
+	<%= f.label :avatar %><br/>
+	<%= f.file_field :avatar %>
+</p>
+<p>
+    <%= f.label :Salasana %>
+    <br/>
+    <%= f.password_field :password, :live => false %>
+</p>
+<p>
+    <%= f.label :Uudestaan %>
+    <br/>
+    <%= f.password_field :password_confirmation %>
+</p>
+<p>
     <%= f.submit 'Update' %>
-  </p>
+</p>
 <% end %>
-
-<%= link_to 'Show', @user %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Show', @user %> |<%= link_to 'Back', users_path %>

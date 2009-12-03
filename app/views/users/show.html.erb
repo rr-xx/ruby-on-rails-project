@@ -10,7 +10,9 @@
 	</li>
 	<li>
 		Email: <%= h @user.email %>
-		
+	</li>
+	<li>
+		<%= image_tag @user.avatar.url(:thumb) %>
 	</li>
 	
 </ul>
