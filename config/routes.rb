@@ -11,6 +11,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   
   map.logout "/logout" , :controller => "logins", :action => "destroy"
+  map.news "/news", :controller => 'news_feeds', :action => 'index', :format => 'atom'
   map.root :controller => "courses"
   
   

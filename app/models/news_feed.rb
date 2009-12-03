@@ -7,6 +7,10 @@ class NewsFeed < ActiveRecord::Base
   
   default_scope :order => 'created_at DESC', :limit => 10
   
+  def title
+    "a"
+  end
+  
   def user_registration?
     return (user and (! (exercise_group)))
   end
