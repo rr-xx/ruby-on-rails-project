@@ -17,6 +17,18 @@
 	
 </ul>
 
+<h3>Rekisteröitymisesi</h3>
+<ul>
+	
+	<% @groups.each do |g| %>
+		<li>
+			
+			<%= g.course_instance.course.name %> <%= g.course_instance.lecture_time %> <%= g.lecture_time %>
+			
+		</li>
+	<% end %>
+</ul>
+
 
 <%= link_to 'Muokkaa asetuksiasi', edit_user_path(@user) %> |
 <%= link_to 'Takaisin kursseihin', courses_path %>

@@ -15,13 +15,13 @@ class User < ActiveRecord::Base
   has_many :registrations
   has_many :exercise_groups, :through => :registrations
   
-  has_many :slaves, :foreign_key => "friend_id",
-                    :class_name => "friend"
-  has_many :friends, :throught => :slaves
+  has_many :slaves, :foreign_key => "participant_id",
+                    :class_name => "Friend"
+  has_many :friends, :through => :slaves
   
-  has_many :masters, :foreign_key => "participant_id",
-                     :class_name => "friend"
-  has_many :participants, :throught => :masters
+  has_many :masters, :foreign_key => "friend_id",
+                     :class_name => "Friend"
+  has_many :participants, :through => :masters
   
   named_scope :in_exercise_group, lambda { |id| { :joins => :registrations, :conditions => ['exercise_group_id = ?', id] } }
 
