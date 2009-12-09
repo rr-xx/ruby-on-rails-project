@@ -4,6 +4,8 @@ class Course < ActiveRecord::Base
    
    has_many :course_instances, :dependent => :destroy
    
+   has_many :separate_exams, :dependent => :destroy
+   
    named_scope :active_ones
 
    def after_create

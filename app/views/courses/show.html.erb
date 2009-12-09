@@ -15,5 +15,17 @@
 	</ul>
 </p>
 
+<h3>Erilliskokeet</h3>
+
+<p>
+	<ul>
+		<% @course.separate_exams.each do |e| %>
+			<li>
+				<%= e.name %>
+			</li>			
+		<% end %>
+	</ul>
+</p>
+	
 <%= link_to 'Muokkaa', edit_course_path(@course) %> |
 <%= link_to 'Takaisin', courses_path %>

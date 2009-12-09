@@ -3,6 +3,7 @@ ActionController::Routing::Routes.draw do |map|
   Translate::Routes.translation_ui(map) if RAILS_ENV != "production"
   
   map.resources :courses do |courses|
+    courses.resources :separate_exams
     courses.resources :course_instances do |ci|
       ci.resources :exercise_groups
     end
@@ -22,6 +23,7 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace :admin do |admin|
     admin.resources :users
     admin.resources :exercise_group_mails
+    admin.resources :courses
   end
   
   map.connect ':controller/:action/:id'
