@@ -19,6 +19,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :users
   map.resource :login
   map.resource :registrations
+  map.resource :separate_exam_registrations
   
   map.namespace :admin do |admin|
     admin.resources :users

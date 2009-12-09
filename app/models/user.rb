@@ -23,6 +23,9 @@ class User < ActiveRecord::Base
                      :class_name => "Friend"
   has_many :participants, :through => :masters
   
+  has_many :separate_exam_registrations
+  has_many :separate_exams, :through => :separate_exam_registrations
+  
   named_scope :in_exercise_group, lambda { |id| { :joins => :registrations, :conditions => ['exercise_group_id = ?', id] } }
 
   def now_editing

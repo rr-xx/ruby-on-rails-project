@@ -21,7 +21,10 @@
 	<ul>
 		<% @course.separate_exams.each do |e| %>
 			<li>
-				<%= e.name %>
+				<%= e.name %> - <%= link_to "ilmottaudu",separate_exam_registrations_path(:id => e.id), :method => :post %>
+				<% if current_user.separate_exams.include? e %>
+				Olet jo ilmonnut
+				<% end %>
 			</li>			
 		<% end %>
 	</ul>
