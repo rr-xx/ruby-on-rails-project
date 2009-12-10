@@ -1,6 +1,18 @@
 <h2>Kurssilistaus</h2>
 
 
+<% @categories.each do |cat| %>
+<h3><%= cat.name %></h3>
+<ul>
+	<% cat.courses.each do |course|%>
+	<li>
+		<%= link_to (h course.name) , course %>
+	</li>
+	<% end %>
+</ul>
+<% end %>
+
+<h3>Ilman kategoriaa</h3>
 <ul>
 <% @courses.each do |course| %>
   <li><%= link_to (h course.name) , course %>

@@ -2,7 +2,9 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.xml
   def index
-    @courses = Course.active_ones
+    @courses = Course.active_ones.uncategorized
+    @categories = Category.all
+    
     
     respond_to do |format|
       format.html # index.html.erb

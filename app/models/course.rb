@@ -6,7 +6,11 @@ class Course < ActiveRecord::Base
    
    has_many :separate_exams, :dependent => :destroy
    
+   belongs_to :category
+   
    named_scope :active_ones
+   
+   named_scope :uncategorized, :conditions => "category_id is null"
 
    def after_create
      NewsFeed.new_course_created self
