@@ -6,6 +6,8 @@ class Course < ActiveRecord::Base
    
    has_many :separate_exams, :dependent => :destroy
    
+   has_many :feed_backs, :dependent => :destroy
+   
    belongs_to :category
    
    named_scope :active_ones

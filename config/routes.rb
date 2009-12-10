@@ -17,6 +17,7 @@ ActionController::Routing::Routes.draw do |map|
   
   
   map.resources :users
+  map.resources :feed_backs
   map.resource :login
   map.resource :registrations
   map.resource :separate_exam_registrations

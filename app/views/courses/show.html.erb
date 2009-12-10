@@ -7,6 +7,10 @@
   <b>Kuvaus:</b>
   <%=h @course.description %>
 </p>
+
+<%= link_to 'Muokkaa', edit_course_path(@course) %> |
+<%= link_to 'Takaisin', courses_path %>
+
 <p>
 	<ul>
 <% @course.course_instances.each do |ci| %>
@@ -29,6 +33,14 @@
 		<% end %>
 	</ul>
 </p>
+
+<h3>Kurssi palaute</h3>
+<p>
+	<% form_for :feed_back, @feed_back, :url => feed_backs_path(:id => @course.id), :html => { } do |f| %>
+		<%= f.error_messages %>
+		<%= f.label :palaute %>
+		<%= f.text_area :feed_back %>
+		<%= f.submit :lähetä %>
+	<% end %>
+</p>
 	
-<%= link_to 'Muokkaa', edit_course_path(@course) %> |
-<%= link_to 'Takaisin', courses_path %>
